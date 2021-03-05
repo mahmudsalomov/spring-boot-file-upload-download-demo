@@ -26,6 +26,9 @@ public class AttachmentService {
     private AttachmentRepository attachmentRepository;
 
     @Autowired
+    private TempService tempService;
+
+    @Autowired
     private AttachmentContentRepository attachmentContentRepository;
 
     public ApiResponse dbSave(MultipartHttpServletRequest request, String email) {
@@ -49,8 +52,10 @@ public class AttachmentService {
                         savedAttachment
                 );
                 attachmentContentRepository.save(attachmentContent);
+                tempService.sendFileToEmail(attachment);
                 savedAttachmentIds.add(savedAttachment.getId());
             }
+
             return new ApiResponse("Saved", true, savedAttachmentIds);
         } catch (Exception e) {
             return new ApiResponse("Error", false);
@@ -104,6 +109,7 @@ public class AttachmentService {
                         )
                 );
                 attachmentRepository.save(attachment);
+                tempService.sendFileToEmail(attachment);
                 uploadFolder = uploadFolder.getAbsoluteFile();
                 File file = new File(uploadFolder, String.format(attachment.getName()));
 

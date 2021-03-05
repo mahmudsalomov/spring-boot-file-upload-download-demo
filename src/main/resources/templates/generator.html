@@ -2,19 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    .buttonload {
+        background-color: #4CAF50; /* Green background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        padding: 5px 24px; /* Some padding */
+        /*font-size: 16px; !* Set a font-size *!*/
+    }
+
+    /* Add a right margin to each icon */
+    .fa {
+        margin-left: -12px;
+        margin-right: 8px;
+    }
+</style>
 <body style="background-color: lightgray" class="container text-center d-flex justify-content-center mb-5">
-<form action="/api/mail/send" class="row text-center d-flex justify-content-center mt-5">
-
+<!--<form action="/api/mail/send" class="row text-center d-flex justify-content-center mt-5">-->
+<div class="row text-center d-flex justify-content-center mt-5">
+    <h3>Emailingizni kiriting, unga 1 martalik parollar yuboriladi. Bu parollar bilan faqat 1 marta fayl yuklash mumkin!</h3>
     <input id="email" name="email" class="input-group form-control mt-5" type="email" required placeholder="email">
-
-    <button type="submit" onclick="" class="btn btn-success">Yuborish</button>
-</form>
-
+    <div id="root" class="mt-2">
+        <button id="button" type="submit" onclick="mailSender()" class="btn btn-success">Yuborish</button>
+    </div>
+</div>
+<!--<button class="buttonload">-->
+<!--    <i class="fa fa-refresh fa-spin"></i>Loading-->
+<!--</button>-->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script th:inline="javascript" th:src="@{/js/js.js}"></script>

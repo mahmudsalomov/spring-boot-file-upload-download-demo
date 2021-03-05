@@ -38,7 +38,7 @@ public class AttachmentController {
                 return serverSave(file,email);
             }
         }
-        return ResponseEntity.status(409).body(apiResponse);
+        return ResponseEntity.status(200).body(apiResponse);
 
 
     }
@@ -47,13 +47,13 @@ public class AttachmentController {
     @PostMapping("/dbSave")
     public HttpEntity<?> dbSave(MultipartHttpServletRequest request, String email){
         ApiResponse apiResponse=attachmentService.dbSave(request,email);
-        return ResponseEntity.status(apiResponse.isSuccess()?201:409).body(apiResponse);
+        return ResponseEntity.status(200).body(apiResponse);
     }
 
     @PostMapping("/serverSave")
     public HttpEntity<?> serverSave(MultipartHttpServletRequest request, String email){
         ApiResponse apiResponse=attachmentService.serverSave(request, email);
-        return ResponseEntity.status(apiResponse.isSuccess()?201:409).body(apiResponse);
+        return ResponseEntity.status(200).body(apiResponse);
     }
 
     @GetMapping("/fromDBOrServer/{id}")

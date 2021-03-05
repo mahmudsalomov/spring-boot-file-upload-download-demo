@@ -7,9 +7,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    .buttonload {
+        background-color: #4CAF50; /* Green background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        padding: 5px 24px; /* Some padding */
+        /*font-size: 16px; !* Set a font-size *!*/
+    }
+
+    /* Add a right margin to each icon */
+    .fa {
+        margin-left: -12px;
+        margin-right: 8px;
+    }
+</style>
 <body style="background-color: #e7e7e7" class="container text-center d-flex justify-content-center">
 <section>
-    <form enctype="multipart/form-data" action="/api/attachment/auth_save" method="post" class="row text-center d-flex justify-content-center">
+<!--    <form enctype="multipart/form-data" action="/api/attachment/auth_save" method="post" class="row text-center d-flex justify-content-center">-->
+    <div class="row text-center d-flex justify-content-center">
         <h1 class="col-12">Fayl yuklash</h1>
         <input accept="image/x-png,image/gif,image/jpeg" id="file" name="file" class="input-group form-control-file col-6" type="file" placeholder="yuklang">
         <input required class="input-group form-control col-12" placeholder="Email" name="email" id="email">
@@ -25,16 +41,16 @@
             <input required class="form-check-input" type="radio" name="dors" id="inlineRadio2" value="2">
             <label class="form-check-label" for="inlineRadio2">Server</label>
         </div>
-        <div class="col-12">
-            <button class="btn-success btn">Yuklash</button>
+        <div class="col-12" id="button2">
+            <button onclick="sendFile()" class="btn-success btn">Yuklash</button>
         </div>
-    </form>
+    </div>
     <a href="/generator" class="btn-success btn mt-2">Kodni olish</a>
 
     <div th:each="i: ${images}" class="row text-center d-flex justify-content-center mt-2">
         <div th:value="${i.name}" class="col-4 m-2 border">
             <p th:text="${i.email}">email</p>
-            <img class="col-4" th:src="'/api/attachment/fromDBOrServer/'+${i.id}">
+            <img style="" class="col-4" th:src="'/api/attachment/fromDBOrServer/'+${i.id}">
         </div>
     </div>
 </section>
