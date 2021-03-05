@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color: lightgray" class="container text-center d-flex justify-content-center mb-5">
+<form action="/api/mail/send" class="row text-center d-flex justify-content-center mt-5">
+
+    <input id="email" name="email" class="input-group form-control mt-5" type="email" required placeholder="email">
+
+    <button type="submit" onclick="" class="btn btn-success">Yuborish</button>
+</form>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script th:inline="javascript" th:src="@{/js/js.js}"></script>
+
+</html>
