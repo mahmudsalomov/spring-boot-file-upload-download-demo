@@ -19,7 +19,7 @@ public class Config {
         mailSender.setPort(587);
 
         mailSender.setUsername("pdpemailtest@gmail.com");
-        mailSender.setPassword("pdp20202021");
+        mailSender.setPassword("*********");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
